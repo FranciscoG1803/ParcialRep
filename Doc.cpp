@@ -54,6 +54,25 @@ Estudiante PromedioAlto(Estudiante e[], int total){
     return mejor;
 }
 
+Estudiante LeerEstudiante(Estudiante e[], int total){
+    Estudiante buscar = e[0];
+    string estudiante_buscar;
+
+    cin.ignore();
+
+    cout<<"Ingrese el nombre del estudiante que desea buscar: ";
+    getline(cin, estudiante_buscar);
+
+    for (int i = 0; i < total; i++)
+    {
+        if (estudiante_buscar == e[i].nombre)
+        {
+             buscar = e[i];
+        }
+    }
+    return buscar;
+}
+
 int main(){
 
     Estudiante e[cantidad_estudiantes];
@@ -66,7 +85,8 @@ int main(){
         cout<<"1. Ingresar estudiante\n";
         cout<<"2. Mostrar estudiantes\n";
         cout<<"3. Promedio mas alto\n";
-        cout<<"4. Salir del programa\n";
+        cout<<"4. Buscar estudiante\n";
+        cout<<"5. Salir del programa\n";
         cout<<"Eliga la opcion: ";
         cin>>opcion;
 
@@ -108,19 +128,32 @@ int main(){
 
             else{
                 Estudiante mejor = PromedioAlto(e, total_estudiante);
-                cout<<"\nEl estudiante con mejor promedio es\n";
+                cout<<"\nEl estudiante con mejor promedio es: \n";
                 MostrarEstudiantes(mejor);
             }
             break;
 
         case 4:
+            if (total_estudiante == 0)
+            {
+                cout<<"\nNo se ha registrado ningun estudiante";
+            }
+
+            else{
+                Estudiante buscar = LeerEstudiante(e, total_estudiante);
+                cout<<"\nEl estudiante se encontro: \n";
+                MostrarEstudiantes(buscar);
+            }
+            break;
+
+        case 5:
             cout<<"\nSaliendo del programa...";
             break;
 
         default:
             break;
         }
-    } while (opcion != 4);
+    } while (opcion != 5);
     
     
     return 0;
