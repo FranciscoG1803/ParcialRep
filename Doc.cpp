@@ -34,12 +34,12 @@ Estudiante IngresarEstudiante(){
     return e;
 }
 
-/*void MostrarEstudiantes(Estudiante &e){
+void MostrarEstudiantes(Estudiante &e){
     cout<<"\n----------------------------------------\n";
     cout<<"Nombre del estudiante: "<<e.nombre<<endl;
     cout<<"Edad del estudiante: "<<e.edad<<endl;
     cout<<"Promedio del estudiante: "<<e.promedio<<endl;
-}*/
+}
 
 int main(){
 
@@ -73,7 +73,7 @@ int main(){
             break;
         
         case 2:
-            /*if (total_estudiante == 0)
+            if (total_estudiante == 0)
             {
                 cout<<"\nNo se ha registrado ningun estudiante";
             }
@@ -84,7 +84,7 @@ int main(){
                     MostrarEstudiantes(e[i]);
                 }
                 
-            }*/
+            }
             
             break;
 
