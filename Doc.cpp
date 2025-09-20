@@ -41,6 +41,19 @@ void MostrarEstudiantes(Estudiante &e){
     cout<<"Promedio del estudiante: "<<e.promedio<<endl;
 }
 
+Estudiante PromedioAlto(Estudiante e[], int total){
+    Estudiante mejor = e[0];
+
+    for (int i = 0; i < total; i++)
+    {
+        if (mejor.promedio < e[i].promedio)
+        {
+             mejor = e[i];
+        }
+    }
+    return mejor;
+}
+
 int main(){
 
     Estudiante e[cantidad_estudiantes];
@@ -52,7 +65,7 @@ int main(){
         cout<<"\n----------------------------------------\n";
         cout<<"1. Ingresar estudiante\n";
         cout<<"2. Mostrar estudiantes\n";
-        cout<<"1. Promedio mas alto\n";
+        cout<<"3. Promedio mas alto\n";
         cout<<"4. Salir del programa\n";
         cout<<"Eliga la opcion: ";
         cin>>opcion;
@@ -82,18 +95,26 @@ int main(){
                 for (int i = 0; i < total_estudiante; i++)
                 {
                     MostrarEstudiantes(e[i]);
-                }
-                
+                }      
             }
             
             break;
 
         case 3:
-            /* code */
+            if (total_estudiante == 0)
+            {
+                cout<<"\nNo se ha registrado ningun estudiante";
+            }
+
+            else{
+                Estudiante mejor = PromedioAlto(e, total_estudiante);
+                cout<<"\nEl estudiante con mejor promedio es\n";
+                MostrarEstudiantes(mejor);
+            }
             break;
 
         case 4:
-            /* code */
+            cout<<"\nSaliendo del programa...";
             break;
 
         default:
